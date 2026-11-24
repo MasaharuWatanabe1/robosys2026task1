@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+# SPDX-FileCopyrightText: 2026 Masaharu Watanabe
+# SPDX-License-Identfier: BSD-3-Clause
+
+import sys
+
+
+
+def main():
+    if len(sys.argv) != 2 or sys.argv[1] == "":
+        prin("Usage: wordfind WORD", file=sys.stderr)
+        return 1
+
+
+    word = sys.argv[1]
+
+    for line_number, line in enumerate(sys.stdin, start=1):
+        if word in line:
+            print(line_number)
+
+
+    return 0
+
+
+
+if __name__ == "__main__":
+    sys.exit(main())
