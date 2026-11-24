@@ -9,7 +9,7 @@
 検索したい文字列を引数に指定して実行します。
 
 ```
-$ cat sample.txt | ./wordfind ドライブ
+$ printf 'ドライブ\n勉強\nドライブ\nドライブ\n' | ./wordfind ドライブ
 1
 3
 4
