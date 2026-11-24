@@ -22,12 +22,14 @@ out=$(printf "" | ./wordfind ドライブ)
 [ "$out" = "" ] || ng "$LINENO"
 
 # NO ARGUMENT
-./wordfind < /dev/null > /dev/null 2>&1
-[ "$?" = 1 ] || ng "$LINENO"
+err=$(./wordfind < /dev/null 2>&1 > /dev/null)
+status=$?
+[ "$status" = 1 ] && [ "$err" = "Usage: wordfind WORD" ] || ng "$LINENO"
 
 # MULTIPLE ARGUMENTS
-./wordfind ドライブ 勉強 < /dev/null > /dev/null 2>&1
-[ "$?" = 1 ] || ng "$LINENO"
+err=$(./wordfind ドライブ 勉強 < /dev/null 2>&1 > /dev/null)
+status=$?
+[ "$status" = 1 ] && [ "$err" = "Usage: wordfind WORD" ] || ng "$LINENO"
 
 [ "$res" = 0 ] && echo OK
 exit "$res"
