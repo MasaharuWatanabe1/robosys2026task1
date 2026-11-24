@@ -12,5 +12,5 @@ jobs:
       uses: actions/setup-python@v6
       with:
         python-version: ${{ matrix.python-version }}
-    - name: All test
-      run: bash -xv ./test.bash
+    - name: Run wordfind test
+      run: bash -xv ./test_wordfind.bash
